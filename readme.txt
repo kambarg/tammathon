@@ -1,7 +1,12 @@
 # tammathon
-Kaggle competition - Pet Facial Recognition
+# Kaggle competition - Pet Facial Recognition
 
-Dataset embedding and cleaning
+Dataset embedding and cleaning algorithm. 
+By default main.py loads and processes snippet of the dataset.
+To run algo on the full dataset replace .csv and folder for images 
+from snippet to train dataset
+
+0. Orginize files structure as follows:
 
 /home/<user>/
 ├── venv/                         # ✅ Virtual environment (outside the project Git repo)
@@ -9,7 +14,6 @@ Dataset embedding and cleaning
 └── <project>/                         # ✅ Your GitHub project (run `git init` here)
     ├── main.py                   # 🔧 Main script to run cleaning
     ├── snippet.csv               # 📄 Small CSV for quick tests
-    ├── train.csv                 # 📄 Full training CSV (optional)
     ├── requirements.txt          # 📦 All required libraries
     ├── .gitignore                # ❌ Ignore venv, logs, cache, etc.
     │
@@ -27,7 +31,6 @@ Dataset embedding and cleaning
         ├── embeddings_arcface.py # Embedding using ArcFace (InsightFace)
         └── embeddings_dinov2.py  # Embedding using DINOv2 (transformers)
 
-
 1. Create the virtual environment (if you haven't already):
 $ python3 -m venv ~/venv
 
@@ -35,11 +38,11 @@ $ python3 -m venv ~/venv
 $ source ~/venv/bin/activate
 
 3. Install dependencies:
-$ (venv) user@host:$ pip install -r requirements.txt
+(venv) user@host:$ pip install -r requirements.txt
 
-4. Run script:
-$ python3 main.py
+4. Run script in the background, ignore logout and redirect stdout and stderr to a file:
+(venv) user@host:$ nohup python3 main.py &> log.txt &
 
-To deactivate virtual enviroment:
+Deactivate virtual enviroment:
 (venv) user@host:$ deactivate
 $
